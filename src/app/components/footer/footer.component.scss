@@ -1,0 +1,135 @@
+// .footer-container{
+//   width: 100%;
+//   background-color: white;
+//   height: 4em;
+//   border-top: 1px solid rgba(211, 211, 211, 0.3);
+//   box-shadow: 0 4px 10px 5px rgba(128, 128, 128, 0.4);
+//   padding: 0 2em;
+// }
+
+// .footer {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 4em;
+//   width: 100%;
+
+// }
+
+
+// .footer .title {
+//     font-size: 24px;
+//     font-weight: bold;
+//     color: #333;
+// }
+
+
+// .footer .nav-links {
+//     height: 100%;
+//     display: flex;
+//     gap: 20px;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+
+// .footer .nav-links li {
+//     display: inline;
+// }
+// .footer .nav-links a {
+//     text-decoration: none;
+//     color: #007bff;
+//     font-weight: bold;
+// }
+// .footer .social-icons {
+//     display: flex;
+//     gap: 10px;
+// }
+
+
+
+
+// .facebook-link {
+//     color: #1877F2; 
+//     text-decoration: none;
+//   }
+  
+//   .instagram-link {
+//     background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//     text-decoration: none;
+//   }
+  
+//   .instagram-link .fa-instagram {
+//     font-size: 2em;
+//   }
+
+  
+//   .icons{
+//     font-size: 2em;
+//   }
+
+
+
+.footer-container {
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid rgba(211, 211, 211, 0.3);
+  box-shadow: 0 4px 10px 5px rgba(128, 128, 128, 0.4);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2em;
+  height: 4em;
+}
+
+.footer .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.footer .nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer .nav-links li {
+  list-style: none;
+}
+
+.footer .nav-links a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.footer .social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.facebook-link {
+  color: #1877F2;
+  text-decoration: none;
+}
+
+.instagram-link {
+  background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
+.instagram-link .fa-instagram {
+  font-size: 2em;
+}
+
+.icons {
+  font-size: 2em;
+}

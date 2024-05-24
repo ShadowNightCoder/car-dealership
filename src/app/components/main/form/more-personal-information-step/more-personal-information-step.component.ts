@@ -1,0 +1,61 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MorePersonalInformationForm, hobbies } from 'src/app/components/interface/form.interface';
+
+@Component({
+  selector: 'app-more-personal-information-step',
+  templateUrl: './more-personal-information-step.component.html',
+  styleUrls: ['./more-personal-information-step.component.scss']
+})
+export class MorePersonalInformationStepComponent implements OnInit {
+  cityOptions = ['New York', 'Los Angeles', 'Chicago'];
+  countryOptions = ['USA', 'Canada', 'Mexico'];
+  morePersonalInfo: MorePersonalInformationForm = {
+    address: '',
+    city: '',
+    country: '',
+    hobbies: []
+  }
+  personMoreInfoForm!: FormGroup;
+
+  ngOnInit(): void {
+    this.personMoreInfoForm = new FormGroup({
+      'address': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]),
+      'city': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]),
+      'country': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]),
+      'hobbies': new FormArray([
+        new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(40)])
+      ]),
+    })
+
+  }
+
+  addNewHobbie() {
+    const control = new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]);
+    (<FormArray>this.personMoreInfoForm.get('hobbies')).push(control);
+  }
+
+  getControls() {
+    return (<FormArray>this.personMoreInfoForm.get('hobbies')).controls;
+  }
+
+
+  onSubmit() {
+    console.log("wired did it even worked?")
+    this.morePersonalInfo = {
+      address: this.personMoreInfoForm.value.address,
+      city: this.personMoreInfoForm.value.city,
+      country: this.personMoreInfoForm.value.country,
+      hobbies: this.personMoreInfoForm.value.hobbies
+    }
+    console.log(this.morePersonalInfo)
+  }
+
+
+
+
+
+
+
+
+}

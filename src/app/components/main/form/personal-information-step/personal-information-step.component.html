@@ -1,0 +1,28 @@
+<form [formGroup]="personInfoForm" (ngSubmit)="onSubmit()">
+    <ng-template matStepLabel>Personal Information</ng-template>
+    <mat-form-field>
+      <mat-label>Full name</mat-label>
+      <input matInput placeholder="Last name, First name" formControlName="fullname">
+    </mat-form-field>
+    <br>
+    <mat-radio-group aria-label="Select a gender" *ngFor="let gender of genders">
+      <label>
+        <input type="radio" formControlName="gender" [value]="gender">{{gender}} 
+      </label>
+    </mat-radio-group>
+    <br>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+    </mat-form-field>
+    <br>
+    <div class="birth-date-input">
+      <label for="birthDate" class="label">Birth Date: </label>
+      <input type="date" id="birthDate" formControlName="birthDate">
+      <i class="calendar-icon" aria-label="Calendar icon"></i>
+    </div>
+    <br>
+    <div>
+      <button type="submit" mat-button matStepperNext [disabled]="personInfoForm.invalid">Next</button>
+    </div>
+  </form>

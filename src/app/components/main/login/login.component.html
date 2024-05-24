@@ -1,0 +1,25 @@
+<div class="login-container">
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <form (ngSubmit)="onSubmit(login)" #login="ngForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" required email ngModel name="email" [(ngModel)]="emailStatus">
+          </mat-form-field>
+          <div class="error" *ngIf="emailStatus.includes(',')">
+            you entred unvalid email
+          </div>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" required ngModel name="password" [(ngModel)]="passwordStatus">
+          </mat-form-field>
+          <div class="error" *ngIf="passwordStatus.includes(',')">
+            you entred unvalid password
+          </div>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!login.valid || emailStatus.includes(',') || passwordStatus.includes(',')">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

@@ -1,0 +1,32 @@
+mat-form-field {
+    flex: 0 1 auto;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.seat-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.seat-input input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 50px;
+}
+
+
+
+mat-slider {
+    width: 300px;
+}
+
+.mat-mdc-slider {
+    --mdc-slider-label-container-color: rgb(82, 174, 255) !important;
+}
+
+#selectMotor.ng-touched.ng-dirty.ng-invalid {
+    border: 1px solid red;
+  }

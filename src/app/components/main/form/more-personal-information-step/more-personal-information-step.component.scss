@@ -1,0 +1,56 @@
+.location-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.add-hobbies-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text_title {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.add-hobbies-button {
+  align-self: start;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  font-size: 18px;
+}
+
+.hobbies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+mat-form-field {
+  flex: 1 1 200px;
+  /* Allow fields to grow and shrink, with a minimum width of 200px */
+  max-width: 300px;
+}
+
+.input-fields {
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+#selectCity.ng-touched.ng-dirty.ng-invalid {
+  border: 1px solid red;
+}
+
+#selectCountry.ng-touched.ng-dirty.ng-invalid {
+  border: 1px solid red;
+}

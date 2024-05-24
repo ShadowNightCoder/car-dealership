@@ -1,0 +1,26 @@
+<form [formGroup]="carInformation" (ngSubmit)="onSubmit()">
+    <ng-template matStepLabel>Car Information</ng-template>
+    <div class="text_title">Favorit Color: <input type="color" id="color selector" formControlName="color"></div>
+    <div class="seat-input">
+      <label for="seats" class="text_title">Required Seats (2-7): </label>
+      <mat-slider min="2" max="7" step="1" showTickMarks discrete [displayWith]="formatLabel">
+        <input matSliderThumb formControlName="seats">
+      </mat-slider>
+      <span class="error-message" *ngIf="selectedSeats < 2 || selectedSeats > 7">
+        Please enter a valid number of seats (2-7).
+      </span>
+    </div>
+    <mat-form-field>
+      <mat-label>Select Motor type</mat-label>
+      <mat-select id="selectMotor" formControlName="motor">
+        <mat-option *ngFor="let motor of motorsList" [value]="motor">
+          {{ motor }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext [disabled]="carInformation.invalid" type="submit">Finish</button>
+    </div>
+  </form>
+  

@@ -1,0 +1,53 @@
+mat-toolbar {
+  padding: 0 3em 0 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.2);
+
+  &.mat-primary {
+    background-color: white !important;
+    color: black !important;
+  }
+}
+
+#logo-container {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.size {
+  height: 3em;
+  font-size: 1.7em
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+nav {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+}
+
+.special-text {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background: -webkit-linear-gradient(left, rgb(255, 198, 114), rgb(255, 126, 115));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.7em;
+  text-shadow: 2px 2px 5px rgba(199, 199, 199, 0.2);
+}

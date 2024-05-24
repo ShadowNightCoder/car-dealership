@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="home-card">
+        <div class="selected-image" *ngIf="selectedImage">
+            
+          <img [src]="selectedImage.src" [alt]="selectedImage.alt">
+    
+            
+        </div>
+        <div class="image-thumbnails">
+          <div *ngFor="let image of images" class="thumbnail-box" (click)="selectImage(image)">
+            <img [src]="image.src" [alt]="image.alt">
+          </div>
+        </div>
+      </div>
+      
+</div>

@@ -1,0 +1,49 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+}
+
+.birth-date-input {
+    position: relative;
+    display: inline-block;
+}
+
+.birth-date-input .label {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+}
+
+.birth-date-input input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    width: 200px;
+}
+
+.birth-date-input .calendar-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.birth-date-input .calendar-icon:hover {
+    color: #333;
+}
+
+#birthDate.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+#birthDate.ng-touched.ng-dirty.ng-invalid {
+    border: 1px solid red;
+  }
