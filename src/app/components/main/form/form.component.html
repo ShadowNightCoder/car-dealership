@@ -1,180 +1,24 @@
-<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-</button>
-<mat-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Personal Information</ng-template>
-      <mat-form-field>
-        <mat-label>Full name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
-
-
-      <br>
-      <mat-radio-group aria-label="Select a gender">
-        <mat-radio-button value="1">Male</mat-radio-button>
-        <mat-radio-button value="2">Female</mat-radio-button>
-        <mat-radio-button value="2">Else</mat-radio-button>
-      </mat-radio-group>
-      <br>
-
-
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="Ex. pat@example.com" required>
-      </mat-form-field>
-
-
-      <br>
-      <div class="birth-date-input">
-        <label for="birthDate" class="label">Birth Date: </label>
-        <input type="date" id="birthDate">
-        <i class="calendar-icon" aria-label="Calendar icon"></i>
-      </div>
-
-      <br>
-
-
-
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" label="More Personal information">
-    <form [formGroup]="secondFormGroup">
-
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Address" required>
-      </mat-form-field>
-      <br>
-
-
-      <mat-form-field>
-        <mat-label>Select a city</mat-label>
-        <mat-select [(value)]="selected">
-          <mat-option *ngFor="let city of cityOptions" [value]="city">
-            {{ city }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <br>
-      <mat-form-field>
-        <mat-label>Select a country</mat-label>
-        <mat-select [(value)]="selected">
-          <mat-option *ngFor="let country of countryOptions" [value]="country">
-            {{ country }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-
-      <div class="add-hobbies-container">
-        <div class="text_title">Add Hobbies</div>
-        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" class="add-hobbies-button" (click)="addNewHobbie()">
-          <mat-icon>add</mat-icon>
-        </button>
-      </div>
-      <div class="hobbies-list">
-        <mat-form-field *ngFor="let hobbi of hobbiesList">
-          <mat-label>Hobbie Name</mat-label>
-          <input matInput placeholder="Address" required>
-        </mat-form-field>
-      </div>  
-      <br>
-
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-
-
-
-
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" label="Car Information">
-    <form [formGroup]="secondFormGroup">
-
-      <div class="text_title">Add Hobbies <input type="color" id="color selector"></div>
-
-
-
-      <div class="seat-input">
-        <label for="seats" class="text_title">Required Seats (2-7): </label>
-        <mat-slider min="2" max="7" step="1" showTickMarks discrete [displayWith]="formatLabel">
-          <input matSliderThumb>
-        </mat-slider>
-        <span class="error-message" *ngIf="selectedSeats < 2 || selectedSeats > 7">
-          Please enter a valid number of seats (2-7).
-        </span>
-      </div>
-      
-      
-    
-
-      <mat-form-field>
-        <mat-label>Select Motor type</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let motor of motorsList" [value]="motor">
-            {{ motor }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-
-
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Finish</button>
-      </div>
-    </form>
-
-
-
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <div class="completion-message">
-      <p class="main-text">You are now done.</p>
-      <p class="sub-text">An email was sent to your email.</p>
-    </div>    
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-stepper> -->
-
-
-
-<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-</button> -->
-<mat-stepper [linear]="!isLinear" #stepper>
+<mat-stepper #stepper>
   <mat-step>
     <ng-template matStepLabel>
       <span class="step-label">Personal Information</span>
     </ng-template>
     <br>
-    <app-personal-information-step></app-personal-information-step>
+    <app-personal-information-step (personInfoEmit)="onFormSubmitted($event)"></app-personal-information-step>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>
       <span class="step-label">More Personal information</span>
     </ng-template>
     <br>
-    <app-more-personal-information-step></app-more-personal-information-step>
+    <app-more-personal-information-step (personMoreInfoEmit)="onForm2Submitted($event)"></app-more-personal-information-step>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>
       <span class="step-label">Car Information</span>
     </ng-template>
     <br>
-    <app-car-information-step></app-car-information-step>
+    <app-car-information-step (carInfoEmit)="onForm3Submitted($event)"></app-car-information-step>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>

@@ -32,6 +32,7 @@ import { MorePersonalInformationStepComponent } from './components/main/form/mor
 import { CarInformationStepComponent } from './components/main/form/car-information-step/car-information-step.component';
 import { CompletionStepComponent } from './components/main/form/completion-step/completion-step.component';
 import { genericFunction } from './components/functions/genericfunc.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -70,7 +71,8 @@ import { genericFunction } from './components/functions/genericfunc.service';
     MatCardModule,
     /////////////
     MatTableModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [localStroageService, genericFunction],
   bootstrap: [AppComponent]

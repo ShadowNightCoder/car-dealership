@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { genericFunction } from 'src/app/components/functions/genericfunc.service';
 import { PersonalInformationForm } from 'src/app/components/interface/form.interface';
+import { FormResetService } from 'src/app/components/service/form.service';
 
 @Component({
   selector: 'app-personal-information-step',
@@ -17,8 +19,11 @@ export class PersonalInformationStepComponent implements OnInit {
     birthDate: new Date()
   };
   personInfoForm!: FormGroup;
+  @Output() personInfoEmit = new EventEmitter<PersonalInformationForm>();
+  resetSubscription!: Subscription;
 
-  constructor(private genericFunc: genericFunction){}
+
+  constructor(private genericFunc: genericFunction, private formResetService: FormResetService){}
 
   ngOnInit(): void {
     this.personInfoForm = new FormGroup({
@@ -27,6 +32,12 @@ export class PersonalInformationStepComponent implements OnInit {
       'email': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40), Validators.email]),
       'birthDate': new FormControl(null, [Validators.required, this.forbiddenDate.bind(this)]),
     })
+
+    this.resetSubscription = this.formResetService.getResetTrigger().subscribe(trigger => {
+      if (trigger) {
+        this.formResetService.resetForm(this.personInfoForm);
+      }
+    });
   }
 
   onSubmit() {
@@ -39,15 +50,20 @@ export class PersonalInformationStepComponent implements OnInit {
     console.log(this.personInfo.birthDate)
     console.log(this.personInfo)
 
+    this.personInfoEmit.emit(this.personInfo);
+
   }
 
 
+  
   forbiddenDate(control: FormControl): { [dateState: string]: boolean } | null {
     if (!this.genericFunc.isValidDate(control.value)) {
       return { 'dateIsForbidden': true };
     }
     return null;
   }
+  
+
   
 
 }

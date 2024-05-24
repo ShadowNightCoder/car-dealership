@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { MorePersonalInformationForm, hobbies } from 'src/app/components/interface/form.interface';
+import { FormResetService } from 'src/app/components/service/form.service';
 
 @Component({
   selector: 'app-more-personal-information-step',
@@ -17,6 +19,9 @@ export class MorePersonalInformationStepComponent implements OnInit {
     hobbies: []
   }
   personMoreInfoForm!: FormGroup;
+  @Output() personMoreInfoEmit = new EventEmitter<MorePersonalInformationForm>();
+  resetSubscription!: Subscription;
+  constructor(private formResetService: FormResetService){}
 
   ngOnInit(): void {
     this.personMoreInfoForm = new FormGroup({
@@ -28,6 +33,11 @@ export class MorePersonalInformationStepComponent implements OnInit {
       ]),
     })
 
+    this.resetSubscription = this.formResetService.getResetTrigger().subscribe(trigger => {
+      if (trigger) {
+        this.formResetService.resetForm(this.personMoreInfoForm);
+      }
+    });
   }
 
   addNewHobbie() {
@@ -49,6 +59,7 @@ export class MorePersonalInformationStepComponent implements OnInit {
       hobbies: this.personMoreInfoForm.value.hobbies
     }
     console.log(this.morePersonalInfo)
+    this.personMoreInfoEmit.emit(this.morePersonalInfo)
   }
 
 

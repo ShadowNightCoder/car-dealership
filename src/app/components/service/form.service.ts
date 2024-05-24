@@ -1,20 +1,25 @@
+// form-reset.service.ts
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FormDataService {
-  private formData: any = {};
+export class FormResetService {
+  private resetTrigger = new BehaviorSubject<boolean>(false);
 
-  setFormData(step: string, data: any) {
-    this.formData[step] = data;
+  constructor() { }
+
+  getResetTrigger(): Observable<boolean> {
+    return this.resetTrigger.asObservable();
   }
 
-  getFormData() {
-    return this.formData;
+  triggerReset() {
+    this.resetTrigger.next(true);
   }
 
-  clearFormData() {
-    this.formData = {};
+  resetForm(form: FormGroup) {
+    form.reset();
   }
 }
