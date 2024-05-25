@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CarInformationForm, FormRequest, MorePersonalInformationForm, PersonalInformationForm, hobbies } from '../../interface/form.interface';
 import { HttpClient } from '@angular/common/http';
+import { localStroageService } from '../../service/localstorage.service';
 
 @Component({
   selector: 'app-form',
@@ -30,7 +31,7 @@ export class FormComponent {
     }
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private localstorageService: localStroageService) { }
 
 
   // Function to handle the form data submitted from the first step
@@ -46,32 +47,23 @@ export class FormComponent {
   // Function to handle the form data submitted from the third step
   onForm3Submitted(formData: CarInformationForm) {
     this.fullFormRequest.carInformation = formData;
-    this.finshedForm();
+    this.setInStorage();
 
   }
 
-  finshedForm() {
-    let courentDataInJson = localStorage.getItem('formList');
-    if (!courentDataInJson) {
-      courentDataInJson = JSON.stringify(this.fullFormRequest);
-    } else {
-      const jsonDataString = JSON.stringify(this.fullFormRequest);
-      courentDataInJson = courentDataInJson + ',' + jsonDataString;
-    }
+  setInStorage() {
+    //   let courentDataInJson = this.localstorageService.getValueFromLocalStorage('formList');
+    //   if (!courentDataInJson) {
+    //     courentDataInJson = JSON.stringify(this.fullFormRequest);
+    //   } else {
+    //     const jsonDataString = JSON.stringify(this.fullFormRequest);
+    //     courentDataInJson = courentDataInJson + ',' + jsonDataString;
+    //   }
+    //   this.localstorageService.appendToLocalStorage('formList', courentDataInJson);
+    //   console.log(this.fullFormRequest)
+    // }
     const jsonDataString = JSON.stringify(this.fullFormRequest);
-    courentDataInJson = courentDataInJson + ',' + jsonDataString;
-    localStorage.setItem('formList', courentDataInJson);
-
-    console.log(this.fullFormRequest)
-
-
+    this.localstorageService.appendToLocalStorage('formList', jsonDataString);
+    console.log(this.fullFormRequest);
   }
-
-
-
-
-
-
-
-
 }

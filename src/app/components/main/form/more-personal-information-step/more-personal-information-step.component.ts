@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MorePersonalInformationForm, hobbies } from 'src/app/components/interface/form.interface';
-import { FormResetService } from 'src/app/components/service/form.service';
+import { FormService } from 'src/app/components/service/form.service';
 
 @Component({
   selector: 'app-more-personal-information-step',
@@ -21,21 +21,29 @@ export class MorePersonalInformationStepComponent implements OnInit {
   personMoreInfoForm!: FormGroup;
   @Output() personMoreInfoEmit = new EventEmitter<MorePersonalInformationForm>();
   resetSubscription!: Subscription;
-  constructor(private formResetService: FormResetService){}
+  constructor(private formService: FormService){}
 
   ngOnInit(): void {
     this.personMoreInfoForm = new FormGroup({
-      'address': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]),
-      'city': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]),
-      'country': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]),
+      'address': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40),
+        this.formService.forbiddenCharacter.bind(this)
+      ]),
+      'city': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40),
+        this.formService.forbiddenCharacter.bind(this)
+      ]),
+      'country': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40),
+        this.formService.forbiddenCharacter.bind(this)
+      ]),
       'hobbies': new FormArray([
-        new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(40)])
+        new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(40),
+          this.formService.forbiddenCharacter.bind(this)
+        ])
       ]),
     })
 
-    this.resetSubscription = this.formResetService.getResetTrigger().subscribe(trigger => {
+    this.resetSubscription = this.formService.getResetTrigger().subscribe(trigger => {
       if (trigger) {
-        this.formResetService.resetForm(this.personMoreInfoForm);
+        this.formService.resetForm(this.personMoreInfoForm);
       }
     });
   }

@@ -22,7 +22,7 @@ export class HeaderComponent {
   }
 
   logout(){
-    this.localstorageservice.removeUserFromLocalStorage();
+    this.localstorageservice.removeValueFromLocalStorage('loggedUser');
   }
 
 

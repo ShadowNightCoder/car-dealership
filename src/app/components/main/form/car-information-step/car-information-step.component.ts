@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CarInformationForm } from 'src/app/components/interface/form.interface';
-import { FormResetService } from 'src/app/components/service/form.service';
+import { FormService } from 'src/app/components/service/form.service';
 
 @Component({
   selector: 'app-car-information-step',
@@ -20,7 +20,7 @@ export class CarInformationStepComponent implements OnInit{
   }
   @Output() carInfoEmit = new EventEmitter<CarInformationForm>();
 
-  constructor(private formResetService: FormResetService){}
+  constructor(private formService: FormService){}
 
   ngOnInit(): void {
       this.carInformation = new FormGroup({
@@ -47,6 +47,6 @@ export class CarInformationStepComponent implements OnInit{
   }
 
   triggerFormReset() {
-    this.formResetService.triggerReset();
+    this.formService.triggerReset();
   }
 }

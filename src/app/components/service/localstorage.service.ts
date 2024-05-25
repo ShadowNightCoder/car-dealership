@@ -11,19 +11,33 @@ export class localStroageService {
         this.loggedUserSubject.next(true); 
     }
 
-    getLoggedUser() {
-        return localStorage.getItem("loggedUser");
+    getValueFromLocalStorage(key: string) {
+        return localStorage.getItem(key);
     }
 
     isUserLoggedIn(): boolean {
-        return this.getLoggedUser() !== null;
+        return this.getValueFromLocalStorage('loggedUser') !== null;
     }
 
-    removeUserFromLocalStorage() {
-        localStorage.removeItem("loggedUser");
+    removeValueFromLocalStorage(key: string) {
+        localStorage.removeItem(key);
         this.loggedUserSubject.next(false);
-
     }
+
+    setFormsData(key: string, value: string) {
+        localStorage.setItem(key, value);
+      }
+
+    appendToLocalStorage(key: string, newValue: string) {
+        let currentData = this.getValueFromLocalStorage(key);
+        if (!currentData) {
+          currentData = newValue;
+        } else {
+          currentData = `${currentData},${newValue}`;
+        }
+        this.setFormsData(key, currentData);
+      }
+
 
     getLoggedUserObservable() {
         return this.loggedUserSubject.asObservable();
