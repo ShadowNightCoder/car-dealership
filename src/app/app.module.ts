@@ -33,6 +33,7 @@ import { CarInformationStepComponent } from './components/main/form/car-informat
 import { CompletionStepComponent } from './components/main/form/completion-step/completion-step.component';
 import { genericFunction } from './components/functions/genericfunc.service';
 import { HttpClientModule } from '@angular/common/http';
+import { dashboardFunctions } from './components/functions/dashboared.service';
 
 
 
@@ -74,7 +75,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     HttpClientModule
   ],
-  providers: [localStroageService, genericFunction],
+  providers: [localStroageService, genericFunction, dashboardFunctions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
