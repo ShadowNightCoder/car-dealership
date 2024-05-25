@@ -26,9 +26,9 @@ export class FormService {
 
   // this is my own form validator for checking if there entred unvalid charecter that is: ,
   forbiddenCharacter(control: FormControl): { [characterState: string]: boolean } | null {
-    if (control.value && control.value.includes(',')) {
+    if (control.value && control.value.includes('!')) {
       console.log(control.value)
-      console.log(control.value.includes(','))
+      console.log(control.value.includes('!'))
       return { 'characterIsForbidden': true };
     }
     return null;

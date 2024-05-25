@@ -24,7 +24,7 @@ export class CarInformationStepComponent implements OnInit{
 
   ngOnInit(): void {
       this.carInformation = new FormGroup({
-        'color' : new FormControl(null),
+        'color' : new FormControl('#000000'),
         'seats' : new FormControl(null),
         'motor' : new FormControl(null, Validators.required),
       })

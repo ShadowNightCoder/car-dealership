@@ -1,12 +1,26 @@
 .container {
-    padding: 16px;
-  }
-  
-  mat-card {
-    height: 100%;
-  }
-  
-  table {
-    width: 100%;
-  }
-  
+  padding: 16px;
+}
+
+mat-card {
+  height: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+
+.color-block {
+  width: 35px;
+  /* Adjust width as needed */
+  height: 35px;
+  /* Adjust height as needed */
+  border: 1px solid #000;
+  /* Add border if needed */
+}
+
+
+.mat-mdc-card {
+  box-shadow: none !important;
+}
