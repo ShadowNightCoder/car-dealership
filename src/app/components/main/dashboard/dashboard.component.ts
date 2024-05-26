@@ -5,6 +5,8 @@ import { localStroageService } from '../../service/localstorage.service';
 import { FormRequest } from '../../interface/form.interface';
 import { genericFunction } from '../../functions/genericfunc.service';
 import { dashboardFunctions } from '../../functions/dashboared.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -16,10 +18,20 @@ export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['fullname', 'gender', 'birthDate', 'country', 'favoriteColor', 'motor'];
   FormsSubList: FormRequest[] = [];
   mostWantedMotor = '';
-
-  constructor(private localstorageService: localStroageService, private genericFunc: genericFunction, private dashboardFunc: dashboardFunctions) {
+  isSmallScreen: boolean = false;
+  private breakpointSubscription: Subscription;
+  
+  constructor(private localstorageService: localStroageService, private breakpointObserver: BreakpointObserver, private dashboardFunc: dashboardFunctions) {
     this.FormsSubList = this.localstorageService.getJsonDataFromLocalStorage('formList');
     Chart.register(...registerables);
+
+    this.breakpointSubscription = this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      '(max-width: 1200px)'
+    ]).subscribe(result => {
+      this.isSmallScreen = result.matches;
+    });
   }
 
 
@@ -122,4 +134,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+
+  ngOnDestroy() {
+    this.breakpointSubscription.unsubscribe();
+  }
 }

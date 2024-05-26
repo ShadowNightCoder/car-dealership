@@ -24,13 +24,41 @@ export class FormService {
   }
 
 
-  // this is my own form validator for checking if there entred unvalid charecter that is: ,
+  // form validator for checking if there entred unvalid charectethat
   forbiddenCharacter(control: FormControl): { [characterState: string]: boolean } | null {
-    if (control.value && control.value.includes('!')) {
-      console.log(control.value)
-      console.log(control.value.includes('!'))
-      return { 'characterIsForbidden': true };
+    const control_new = String(control.value).toLowerCase()
+    const forbiddenChars = ['!', '<', '>', '&', '=', '+', '*', '/', '\\', '%', '(', ')', '[', ']', '{', '}', ';', ':', '"', '\'', ',', '`', '~', '|', '^'];
+    const suspiciousKeywords = [
+      // JavaScript functions
+      'eval', 'alert', 'prompt', 'confirm', 'setTimeout', 'setInterval', 'XMLHttpRequest', 'fetch',
+      // DOM manipulation
+      'document.', 'window.', 'localStorage', 'sessionStorage', 'innerHTML', 'outerHTML', 'createElement', 'appendChild', 'insertAdjacentHTML',
+      // JavaScript objects
+      'location', 'history', 'navigator', 'cookie', 'window.open',
+      // AJAX related
+      'XMLHttpRequest', 'fetch',
+      // JavaScript events
+      'onmouseover', 'onmouseout', 'onmousedown', 'onmouseup', 'onmouseenter', 'onmouseleave', 'onmousemove', 'onkeydown', 'onkeyup', 'onkeypress', 'onfocus', 'onblur', 'onsubmit', 'onreset', 'onchange', 'onselect', 'onabort', 'onerror', 'onload', 'onunload', 'onresize', 'onscroll'
+      // Additional keywords and functions can be added based on your application's specific requirements and context
+    ];
+    for (const char of forbiddenChars) {
+      const charLowerCase = char.toLowerCase();
+      if (control_new.includes(charLowerCase)) {
+        console.log(control_new);
+        console.log(`Forbidden character ${charLowerCase} detected`);
+        return { 'characterIsForbidden': true };
+      }
     }
+
+
+    for (const keyword of suspiciousKeywords) {
+      if (control_new.includes(keyword.toLowerCase())) {
+        console.log(`Suspicious keyword ${keyword} detected`);
+        return { 'suspiciousKeywordDetected': true };
+      }
+    }
+
+
     return null;
   }
 }

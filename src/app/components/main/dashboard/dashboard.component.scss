@@ -2,6 +2,31 @@
   padding: 16px;
 }
 
+mat-card-title{
+  width: 100%;
+  text-align: center;
+}
+
+#agesChart {
+  width: 600px;
+}
+
+#engineChart {
+  width: 300px;
+}
+
+#hobbiesChart {
+  width: 300px;
+}
+
+.mat-mdc-card-content:last-child {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 mat-card {
   height: 100%;
 }
@@ -13,11 +38,8 @@ table {
 
 .color-block {
   width: 35px;
-  /* Adjust width as needed */
   height: 35px;
-  /* Adjust height as needed */
   border: 1px solid #000;
-  /* Add border if needed */
 }
 
 
@@ -28,7 +50,52 @@ table {
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  // gap: 16px;
+}
+
+
+@media screen and (min-width: 640px) {
+  #agesChart {
+    width: 600px !important;
+  }
+
+  #engineChart {
+    width: 300px !important;
+  }
+
+  #hobbiesChart {
+    width: 300px !important;
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  #agesChart {
+    width: 460px !important;
+  }
+
+  #engineChart {
+    width: 270px !important;
+    height: fit-content !important;
+  }
+
+  #hobbiesChart {
+    width: 270px !important;
+    height: fit-content !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #agesChart {
+    width: 360px !important;
+  }
+
+  #engineChart {
+    width: 240px !important;
+  }
+
+  #hobbiesChart {
+    width: 240px !important;
+  }
 }
 
 
@@ -44,9 +111,21 @@ table {
 }
 
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 390px) {
   .container {
     padding: 6px;
+  }
+  #agesChart {
+    width: 340px !important;
+  }
+
+  #engineChart {
+    width: 220px !important;
+  }
+
+  #hobbiesChart {
+    width: 220px !important;
+
   }
 }
 

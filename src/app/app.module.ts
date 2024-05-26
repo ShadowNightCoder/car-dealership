@@ -82,6 +82,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     MatGridListModule,
     HttpClientModule,
     // GoogleMapsModule,
+    
   ],
   providers: [localStroageService, genericFunction, dashboardFunctions],
   bootstrap: [AppComponent]

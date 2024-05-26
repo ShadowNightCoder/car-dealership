@@ -49,7 +49,7 @@ export class MorePersonalInformationStepComponent implements OnInit {
   }
 
   addNewHobbie() {
-    const control = new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]);
+    const control = new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(40), this.formService.forbiddenCharacter.bind(this)]);
     (<FormArray>this.personMoreInfoForm.get('hobbies')).push(control);
   }
 
