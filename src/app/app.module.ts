@@ -36,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { dashboardFunctions } from './components/functions/dashboared.service';
 import { CityMapComponent } from './components/city-map/city-map.component';
 import { MainCompComponent } from './components/main/main-comp/main-comp.component';
+import { LoadingComponent } from './components/loading/loading.component';
 // import { GoogleMapsModule } from '@angular/google-maps';
 
 
@@ -55,6 +56,7 @@ import { MainCompComponent } from './components/main/main-comp/main-comp.compone
     CompletionStepComponent,
     CityMapComponent,
     MainCompComponent,
+    LoadingComponent,
     
   ],
   imports: [

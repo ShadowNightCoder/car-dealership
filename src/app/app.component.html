@@ -1,5 +1,10 @@
-<div class="container">
-    <app-header></app-header>
-    <app-main-comp></app-main-comp>
-    <app-footer></app-footer>
+
+
+<app-loading *ngIf="isLoading"></app-loading>
+<div *ngIf="!isLoading">
+    <div class="container">
+        <app-header></app-header>
+        <app-main-comp></app-main-comp>
+        <app-footer></app-footer>
+    </div>
 </div>
