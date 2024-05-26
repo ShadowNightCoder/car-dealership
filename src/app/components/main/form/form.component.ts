@@ -10,6 +10,7 @@ import { localStroageService } from '../../service/localstorage.service';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
+    windowWidth: number = 0;
 
   fullFormRequest: FormRequest = {
     personalInformation: {
@@ -52,16 +53,6 @@ export class FormComponent {
   }
 
   setInStorage() {
-    //   let courentDataInJson = this.localstorageService.getValueFromLocalStorage('formList');
-    //   if (!courentDataInJson) {
-    //     courentDataInJson = JSON.stringify(this.fullFormRequest);
-    //   } else {
-    //     const jsonDataString = JSON.stringify(this.fullFormRequest);
-    //     courentDataInJson = courentDataInJson + ',' + jsonDataString;
-    //   }
-    //   this.localstorageService.appendToLocalStorage('formList', courentDataInJson);
-    //   console.log(this.fullFormRequest)
-    // }
     const jsonDataString = JSON.stringify(this.fullFormRequest);
     this.localstorageService.appendToLocalStorage('formList', jsonDataString);
     console.log(this.fullFormRequest);

@@ -2,6 +2,7 @@
   <mat-step>
     <ng-template matStepLabel>
       <span class="step-label">Personal Information</span>
+      <span class="step-mini-label">Part 1</span>
     </ng-template>
     <br>
     <app-personal-information-step (personInfoEmit)="onFormSubmitted($event)"></app-personal-information-step>
@@ -9,6 +10,7 @@
   <mat-step>
     <ng-template matStepLabel>
       <span class="step-label">More Personal information</span>
+      <span class="step-mini-label">Part 2</span>
     </ng-template>
     <br>
     <app-more-personal-information-step (personMoreInfoEmit)="onForm2Submitted($event)"></app-more-personal-information-step>
@@ -16,13 +18,16 @@
   <mat-step>
     <ng-template matStepLabel>
       <span class="step-label">Car Information</span>
+      <span class="step-mini-label">Part 3</span>
     </ng-template>
     <br>
     <app-car-information-step (carInfoEmit)="onForm3Submitted($event)"></app-car-information-step>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>
-      <span class="step-label">Done</span>
+      <span class="step-label">Finish</span>
+      <span class="step-mini-label">Done</span>
+      
     </ng-template>
     <br>
     <app-completion-step (resetStepper)="stepper.reset()"></app-completion-step>
