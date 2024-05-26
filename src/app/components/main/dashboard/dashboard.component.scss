@@ -42,3 +42,16 @@ table {
   }
 
 }
+
+
+@media screen and (max-width: 380px) {
+  .container {
+    padding: 6px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    padding: 0;
+  }
+}

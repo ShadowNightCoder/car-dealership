@@ -1,68 +1,3 @@
-// .footer-container {
-//   // width: 100%;
-//   background-color: white;
-//   border-top: 1px solid rgba(211, 211, 211, 0.3);
-//   box-shadow: 0 4px 10px 5px rgba(128, 128, 128, 0.4);
-// }
-
-// .footer {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 0 2em;
-//   height: 4em;
-// }
-
-// .footer .title {
-//   font-size: 24px;
-//   font-weight: bold;
-//   color: #333;
-// }
-
-// .footer .nav-links {
-//   display: flex;
-//   gap: 20px;
-//   align-items: center;
-// }
-
-// .footer .nav-links li {
-//   list-style: none;
-// }
-
-// .footer .nav-links a {
-//   text-decoration: none;
-//   color: #007bff;
-//   font-weight: bold;
-// }
-
-// .footer .social-icons {
-//   display: flex;
-//   gap: 10px;
-// }
-
-// .facebook-link {
-//   color: #1877F2;
-//   text-decoration: none;
-// }
-
-// .instagram-link {
-//   background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
-//   -webkit-background-clip: text;
-//   -webkit-text-fill-color: transparent;
-//   text-decoration: none;
-// }
-
-// .instagram-link .fa-instagram {
-//   font-size: 2em;
-// }
-
-// .icons {
-//   font-size: 2em;
-// }
-
-
-
-
 footer {
   height: 3.5em;
   background-color: white;
@@ -79,10 +14,19 @@ footer {
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  position: absolute;
+}
+
+.nav-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-links {
-  width: 80%;
+  width: 100%;
   height: 100%;
   display: flex;
   gap: 20px;
@@ -92,6 +36,7 @@ footer {
 
   li {
     list-style: none;
+    height: fit-content;
   }
 
   a {
@@ -109,6 +54,7 @@ footer {
 .facebook-link {
   color: #1877F2;
   text-decoration: none;
+  height: fit-content;
 }
 
 .instagram-link {
@@ -116,6 +62,8 @@ footer {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
+  height: fit-content;
+
 }
 
 .icons {
@@ -124,6 +72,13 @@ footer {
 
 
 /* Media Queries for Responsive Design */
+
+@media (max-width: 700px) {
+  .nav-links {
+    width: 80%;
+    justify-content: flex-end;
+  }
+}
 
 @media (max-width: 600px) {
   footer {
@@ -134,13 +89,14 @@ footer {
     font-size: 1.3em;
   }
 
-  ul.nav-links{
+  ul.nav-links {
     padding: 0 !important;
     margin: 0 !important;
   }
 
   .nav-links {
-    width: 90%;
+    width: 85%;
+    justify-content: flex-end;
     gap: 16px;
   }
 
@@ -164,6 +120,8 @@ footer {
   }
 
   .nav-links {
+    width: 90%;
+    justify-content: flex-end;
     gap: 8px;
   }
 
@@ -212,6 +170,8 @@ footer {
   }
 
   .nav-links {
+    width: 100%;
+    justify-content: flex-end;
     gap: 5px;
   }
 
@@ -232,10 +192,13 @@ footer {
   }
 
   .title {
+    position: relative !important;
     font-size: 0.9em;
   }
 
   .nav-links {
+    width: 100%;
+    justify-content: flex-end;
     gap: 4px;
   }
 
@@ -247,4 +210,3 @@ footer {
     font-size: 1.15em;
   }
 }
-

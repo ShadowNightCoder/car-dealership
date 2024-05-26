@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MorePersonalInformationForm, hobbies } from 'src/app/components/interface/form.interface';
 import { FormService } from 'src/app/components/service/form.service';
@@ -10,8 +10,8 @@ import { FormService } from 'src/app/components/service/form.service';
   styleUrls: ['./more-personal-information-step.component.scss']
 })
 export class MorePersonalInformationStepComponent implements OnInit {
-  cityOptions = ['New York', 'Los Angeles', 'Chicago'];
-  countryOptions = ['USA', 'Canada', 'Mexico'];
+  // cityOptions = ['New York', 'Los Angeles', 'Chicago'];
+  // countryOptions = ['USA', 'Canada', 'Mexico'];
   morePersonalInfo: MorePersonalInformationForm = {
     address: '',
     city: '',
@@ -72,7 +72,36 @@ export class MorePersonalInformationStepComponent implements OnInit {
 
 
 
+  
+  public countries = [
+    { name: 'Israel', cities: ['Jerusalem', 'Tel Aviv', 'Haifa', 'Beersheba', 'Eilat', 'Nazareth', 'Netanya'] },
+    { name: 'United States', cities: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Antonio'] },
+    { name: 'United Kingdom', cities: ['London', 'Birmingham', 'Manchester', 'Glasgow', 'Liverpool', 'Newcastle', 'Bristol'] },
+    { name: 'Canada', cities: ['Toronto', 'Montreal', 'Vancouver', 'Calgary', 'Edmonton', 'Ottawa', 'Quebec City'] },
+    { name: 'Australia', cities: ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide', 'Gold Coast', 'Canberra'] },
+    { name: 'France', cities: ['Paris', 'Marseille', 'Lyon', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg'] },
+    { name: 'Germany', cities: ['Berlin', 'Hamburg', 'Munich', 'Cologne', 'Frankfurt', 'Stuttgart', 'Düsseldorf'] },
+    { name: 'Italy', cities: ['Rome', 'Milan', 'Naples', 'Turin', 'Palermo', 'Genoa', 'Bologna'] },
+    { name: 'Spain', cities: ['Madrid', 'Barcelona', 'Valencia', 'Seville', 'Zaragoza', 'Malaga', 'Murcia'] },
+    { name: 'India', cities: ['Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata', 'Ahmedabad'] },
+    { name: 'Brazil', cities: ['Sao Paulo', 'Rio de Janeiro', 'Brasilia', 'Salvador', 'Fortaleza', 'Belo Horizonte', 'Manaus'] },
+    { name: 'Russia', cities: ['Moscow', 'Saint Petersburg', 'Novosibirsk', 'Yekaterinburg', 'Nizhny Novgorod', 'Kazan', 'Chelyabinsk'] },
+    { name: 'China', cities: ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen', 'Tianjin', 'Chongqing', 'Hangzhou'] },
+    { name: 'Japan', cities: ['Tokyo', 'Yokohama', 'Osaka', 'Nagoya', 'Sapporo', 'Fukuoka', 'Kobe'] },
+    { name: 'South Korea', cities: ['Seoul', 'Busan', 'Incheon', 'Daegu', 'Daejeon', 'Gwangju', 'Ulsan'] },
+    { name: 'Mexico', cities: ['Mexico City', 'Guadalajara', 'Monterrey', 'Puebla', 'Tijuana', 'Leon', 'Juarez'] },
+    { name: 'Argentina', cities: ['Buenos Aires', 'Cordoba', 'Rosario', 'Mendoza', 'San Miguel de Tucuman', 'La Plata', 'Mar del Plata'] },
+    // Add more countries and cities here
+  ];
+  
+  public cities: string[] = [];
 
+
+  onCountryChange(selectedCountry: string) {
+    const country = this.countries.find(c => c.name === selectedCountry);
+    this.cities = country ? country.cities : [];
+    this.personMoreInfoForm.get('city')?.reset();
+  }
 
 
 

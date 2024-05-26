@@ -1,4 +1,4 @@
-<form [formGroup]="personMoreInfoForm" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="personMoreInfoForm" (ngSubmit)="onSubmit()">
   <ng-template matStepLabel>More Personal Information</ng-template>
   <mat-form-field>
     <mat-label>Address</mat-label>
@@ -47,4 +47,64 @@
     <button mat-button matStepperPrevious>Back</button>
     <button type="submit" mat-button matStepperNext [disabled]="personMoreInfoForm.invalid">Next</button>
   </div>
+</form> -->
+
+
+
+<form [formGroup]="personMoreInfoForm" (ngSubmit)="onSubmit()">
+  <ng-template matStepLabel>More Personal Information</ng-template>
+  <mat-form-field>
+    <mat-label>Address</mat-label>
+    <input matInput placeholder="Address" formControlName="address">
+  </mat-form-field>
+  <br>
+  
+  <!-- country dropdown -->
+  <mat-form-field id="selectCountry">
+    <mat-label>Select a country</mat-label>
+    <mat-select formControlName="country" (selectionChange)="onCountryChange($event.value)">
+      <mat-option *ngFor="let country of countries" [value]="country.name">
+        {{ country.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <!-- City dropdown -->
+  <mat-form-field *ngIf="cities.length > 0" id="selectCity">
+    <mat-label>Select a city</mat-label>
+    <mat-select formControlName="city">
+      <mat-option *ngFor="let city of cities" [value]="city">
+        {{ city }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+
+  <div class="add-hobbies-container" formArrayName="hobbies">
+    <div class="same-line">
+      <div class="text_title">Add Hobbies</div>
+      <button type="button" mat-fab color="primary" class="add-hobbies-button" (click)="addNewHobbie()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div class="hobbies-list">
+      <div *ngFor="let hobbiesControl of getControls(); let i = index" class="input-fields">
+        <mat-form-field>
+          <mat-label>Hobbie Name</mat-label>
+          <input type="text" matInput placeholder="hobbies" [formControlName]="i">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button type="submit" mat-button matStepperNext [disabled]="personMoreInfoForm.invalid">Next</button>
+  </div>
 </form>
+
+
+
