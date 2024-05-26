@@ -40,6 +40,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 1em;
+  margin: 0 0.4em;
 
   a {
     color: black;
@@ -153,7 +154,7 @@ nav {
 
 @media (max-width: 420px) {
   header {
-    padding: 0 0.2em 0 0.1em;
+    padding: 0 0.3em 0 0.1em;
   }
 
   .size {
@@ -162,23 +163,23 @@ nav {
   }
 
   .special-text {
-    font-size: 0.95em;
+    font-size: 1.1em;
   }
 
   nav a {
-    font-size: 0.85em;
+    font-size: 0.95em;
   }
 }
 
 
 
-@media (max-width: 365px) {
+@media (max-width: 375px) {
   .size {
     font-size: 1.1em;
   }
 
   .special-text {
-    font-size: 0.9em;
+    font-size: 1em;
   }
 
   nav {
@@ -187,18 +188,18 @@ nav {
   }
 
   nav a {
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 }
 
 //for galaxy fold specialy
-@media (max-width: 320px) {
+@media (max-width: 340px) {
   .size {
-    font-size: 0.9em;
+    font-size: 0.95em;
   }
 
   .special-text {
-    font-size: 0.8em;
+    font-size: 0.92em;
   }
 
   nav {
@@ -207,6 +208,25 @@ nav {
   }
 
   nav a {
-    font-size: 0.7em;
+    font-size: 0.82em;
+  }
+
+  @media (max-width: 310px) {
+    .size {
+      font-size: 0.95em;
+    }
+
+    .special-text {
+      font-size: 0.85em;
+    }
+
+    nav {
+      gap: 4px;
+
+    }
+
+    nav a {
+      font-size: 0.7em;
+    }
   }
 }

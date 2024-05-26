@@ -193,6 +193,7 @@ footer {
 
   .nav-links a {
     font-size: 0.85em;
+    font-weight: 500;
   }
 
   .icons {
@@ -215,11 +216,35 @@ footer {
   }
 
   .nav-links a {
-    font-size: 0.7em;
+    font-size: 0.8em;
   }
 
   .icons {
     font-size: 1.2em;
+  }
+}
+
+
+
+@media (max-width: 305px) {
+  footer {
+    padding: 0 0.1;
+  }
+
+  .title {
+    font-size: 0.9em;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links a {
+    font-size: 0.75em;
+  }
+
+  .icons {
+    font-size: 1.15em;
   }
 }
 

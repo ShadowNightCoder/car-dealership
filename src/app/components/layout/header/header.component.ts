@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { localStroageService } from '../service/localstorage.service';
+import { localStroageService } from '../../service/localstorage.service';
 import { Subscription } from 'rxjs';
 
 @Component({
