@@ -7,7 +7,7 @@ mat-card {
 }
 
 table {
-  width: 100%;
+  width: 350px;
 }
 
 
@@ -23,4 +23,22 @@ table {
 
 .mat-mdc-card {
   box-shadow: none !important;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  // gap: 16px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .notSoImportant {
+    display: none;
+  }
+
+  .mat-mdc-card-content {
+    padding: 0 !important;
+  }
+
 }
