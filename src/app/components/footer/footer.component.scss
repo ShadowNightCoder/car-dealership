@@ -1,112 +1,104 @@
-// .footer-container{
-//   width: 100%;
+// .footer-container {
+//   // width: 100%;
 //   background-color: white;
-//   height: 4em;
 //   border-top: 1px solid rgba(211, 211, 211, 0.3);
 //   box-shadow: 0 4px 10px 5px rgba(128, 128, 128, 0.4);
-//   padding: 0 2em;
 // }
 
 // .footer {
 //   display: flex;
 //   justify-content: space-between;
 //   align-items: center;
+//   padding: 0 2em;
 //   height: 4em;
-//   width: 100%;
-
 // }
-
 
 // .footer .title {
-//     font-size: 24px;
-//     font-weight: bold;
-//     color: #333;
+//   font-size: 24px;
+//   font-weight: bold;
+//   color: #333;
 // }
-
 
 // .footer .nav-links {
-//     height: 100%;
-//     display: flex;
-//     gap: 20px;
-//     justify-content: center;
-//     align-items: center;
+//   display: flex;
+//   gap: 20px;
+//   align-items: center;
 // }
-
 
 // .footer .nav-links li {
-//     display: inline;
+//   list-style: none;
 // }
+
 // .footer .nav-links a {
-//     text-decoration: none;
-//     color: #007bff;
-//     font-weight: bold;
+//   text-decoration: none;
+//   color: #007bff;
+//   font-weight: bold;
 // }
+
 // .footer .social-icons {
-//     display: flex;
-//     gap: 10px;
+//   display: flex;
+//   gap: 10px;
 // }
-
-
-
 
 // .facebook-link {
-//     color: #1877F2; 
-//     text-decoration: none;
-//   }
-  
-//   .instagram-link {
-//     background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent;
-//     text-decoration: none;
-//   }
-  
-//   .instagram-link .fa-instagram {
-//     font-size: 2em;
-//   }
+//   color: #1877F2;
+//   text-decoration: none;
+// }
 
-  
-//   .icons{
-//     font-size: 2em;
-//   }
+// .instagram-link {
+//   background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   text-decoration: none;
+// }
 
+// .instagram-link .fa-instagram {
+//   font-size: 2em;
+// }
+
+// .icons {
+//   font-size: 2em;
+// }
 
 
-.footer-container {
-  width: 100%;
+
+
+footer {
+  height: 3.5em;
   background-color: white;
   border-top: 1px solid rgba(211, 211, 211, 0.3);
   box-shadow: 0 4px 10px 5px rgba(128, 128, 128, 0.4);
-}
-
-.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2em;
-  height: 4em;
 }
 
-.footer .title {
+
+.title {
   font-size: 24px;
   font-weight: bold;
   color: #333;
 }
 
-.footer .nav-links {
+.nav-links {
+  width: 80%;
+  height: 100%;
   display: flex;
   gap: 20px;
   align-items: center;
-}
+  justify-content: center;
 
-.footer .nav-links li {
-  list-style: none;
-}
 
-.footer .nav-links a {
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 600;
+  }
 }
 
 .footer .social-icons {
@@ -126,10 +118,108 @@
   text-decoration: none;
 }
 
-.instagram-link .fa-instagram {
-  font-size: 2em;
-}
-
 .icons {
   font-size: 2em;
 }
+
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 600px) {
+  footer {
+    padding: 0 1.5em;
+  }
+
+  .title {
+    font-size: 1.3em;
+  }
+
+  ul.nav-links{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .nav-links {
+    width: 90%;
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 0.9em;
+  }
+
+  .icons {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 500px) {
+  footer {
+    height: 3em;
+    padding: 0 1em;
+  }
+
+  .title {
+    font-size: 1.2em;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 0.9em;
+  }
+
+  .icons {
+    font-size: 1.45em;
+  }
+}
+
+
+@media (max-width: 400px) {
+  footer {
+    height: 2.8em;
+    padding: 0 0.2em;
+  }
+
+  .title {
+    font-size: 1.1em;
+  }
+
+  .nav-links {
+    gap: 5px;
+  }
+
+  .nav-links a {
+    font-size: 0.85em;
+  }
+
+  .icons {
+    font-size: 1.15em;
+  }
+}
+
+
+@media (max-width: 330px) {
+  footer {
+    padding: 0 0.1;
+  }
+
+  .title {
+    font-size: 1em;
+  }
+
+  .nav-links {
+    gap: 5px;
+  }
+
+  .nav-links a {
+    font-size: 0.7em;
+  }
+
+  .icons {
+    font-size: 1.2em;
+  }
+}
+

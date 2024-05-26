@@ -34,6 +34,8 @@ import { CompletionStepComponent } from './components/main/form/completion-step/
 import { genericFunction } from './components/functions/genericfunc.service';
 import { HttpClientModule } from '@angular/common/http';
 import { dashboardFunctions } from './components/functions/dashboared.service';
+import { CityMapComponent } from './components/city-map/city-map.component';
+// import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -50,6 +52,7 @@ import { dashboardFunctions } from './components/functions/dashboared.service';
     MorePersonalInformationStepComponent,
     CarInformationStepComponent,
     CompletionStepComponent,
+    CityMapComponent,
     
   ],
   imports: [
@@ -73,7 +76,8 @@ import { dashboardFunctions } from './components/functions/dashboared.service';
     /////////////
     MatTableModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    // GoogleMapsModule,
   ],
   providers: [localStroageService, genericFunction, dashboardFunctions],
   bootstrap: [AppComponent]

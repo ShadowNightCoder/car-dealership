@@ -1,4 +1,7 @@
-mat-toolbar {
+
+
+header {
+  height: 5em;
   padding: 0 3em 0 1em;
   display: flex;
   justify-content: space-between;
@@ -6,42 +9,22 @@ mat-toolbar {
   border-bottom: 2px solid rgba(128, 128, 128, 0.2);
   box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.2);
 
-  &.mat-primary {
-    background-color: white !important;
-    color: black !important;
-  }
 }
 
 #logo-container {
-  display: flex;
-  flex-direction: row;
-}
-
-
-.size {
-  height: 3em;
-  font-size: 1.7em
-}
-
-.spacer {
-  flex: 1 1 auto;
-}
-
-nav {
-  width: 30%;
   height: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+}
 
-  a {
-    color: black;
-    text-decoration: none;
-    font-size: 0.9em;
-  }
+.size {
+  height: 4em;
+  font-size: 1.8em
 }
 
 .special-text {
+  height: 100%;
   display: flex;
   align-items: center;
   color: #fff;
@@ -50,4 +33,159 @@ nav {
   -webkit-text-fill-color: transparent;
   font-size: 1.7em;
   text-shadow: 2px 2px 5px rgba(199, 199, 199, 0.2);
+}
+
+nav {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: color 0.3s;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a:hover {
+    color: #1e74d0;
+  }
+}
+
+
+
+// /* Media Queries for Responsive Design */
+@media (max-width: 800px) {
+  .mdc-button {
+    min-width: 0 !important;
+  }
+
+  header {
+    padding: 0 2.2em 0 0.7em;
+  }
+
+  .size {
+    height: 3em;
+    font-size: 1.5em;
+  }
+
+  .special-text {
+    font-size: 1.8em;
+  }
+
+  nav a {
+    font-size: 1.25em;
+  }
+}
+
+
+@media (max-width: 700px) {
+  header {
+    height: 3.5em;
+    padding: 0 1.5em 0 0.4em;
+  }
+
+  .size {
+    height: 2.6em;
+    font-size: 1.4em;
+  }
+
+  .special-text {
+    font-size: 1.55em;
+  }
+
+  nav a {
+    font-size: 1.12em;
+  }
+}
+
+
+@media (max-width: 570px) {
+  header {
+    padding: 0 0.6em 0 0.2em;
+  }
+
+  .size {
+    height: 2.4em;
+    font-size: 1.3em;
+  }
+
+  .special-text {
+    font-size: 1.4em;
+  }
+
+  nav a {
+    font-size: 0.95em;
+  }
+}
+
+
+@media (max-width: 500px) {
+  header {
+    padding: 0 0.2em 0 0.1em;
+  }
+
+  .size {
+    height: 2em;
+    font-size: 1.2em;
+  }
+
+  .special-text {
+    font-size: 1em;
+  }
+
+  nav a {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 420px) {
+  header {
+    padding: 0;
+  }
+
+  .special-text {
+    font-size: 0.85em;
+  }
+
+  nav a {
+    font-size: 0.75em;
+  }
+}
+
+
+
+@media (max-width: 365px) {
+  .size {
+    font-size: 1.1em;
+  }
+
+  .special-text {
+    font-size: 0.75em;
+  }
+
+  nav a {
+    font-size: 0.65em;
+  }
+}
+
+//for galaxy fold specialy
+@media (max-width: 320px) {
+  .size {
+    font-size: 0.7em;
+  }
+
+  .special-text {
+    font-size: 0.6em;
+  }
+
+  nav a {
+    font-size: 0.4em;
+  }
 }

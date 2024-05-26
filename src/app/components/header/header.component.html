@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
   <div id="logo-container">
     <img src="./../../../assets/img/icon/caricon-removebg-preview.png" alt="Logo" class="size">
     <div class="special-text">
@@ -12,4 +12,25 @@
     <a mat-button routerLink="/dashboard">Dashboard</a>
     <a mat-button *ngIf="loggedUser" (click)="logout()">logout</a>
   </nav>
-</mat-toolbar>
+</mat-toolbar> -->
+
+
+<header>
+
+     <div id="logo-container">
+      <img src="./../../../assets/img/icon/caricon-removebg-preview.png" alt="Logo" class="size">
+      <div class="special-text">
+        Car Dellershop
+      </div>
+    </div>
+    <nav>
+      <a routerLink="/home">Home</a>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/forms">Forms</a>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a *ngIf="loggedUser" (click)="logout()">logout</a>
+    </nav>
+
+  
+</header>
+
