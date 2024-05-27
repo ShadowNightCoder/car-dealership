@@ -26,7 +26,9 @@ The Dashboard page displays comprehensive data collected from users, including a
 
 The following images served as inspiration for the design and layout of the Car Shop Angular project (generated using AI):
 
-[Insert inspiration images here]
+![צילום מסך 2024-05-27 135435](https://github.com/ShadowNightCoder/car-dealership/assets/94745647/d43e2a5b-9186-4d01-a249-6aa77b11db7b)
+
+![צילום מסך 2024-05-27 142807](https://github.com/ShadowNightCoder/car-dealership/assets/94745647/fdd4401f-8ee5-4eb8-abd4-f315cd83ea2f)
 
 ## Getting Started
 
