@@ -10,7 +10,7 @@ import { DashboardComponent } from './components/main/dashboard/dashboard.compon
 import { LoginComponent } from './components/main/login/login.component';
 import { HomeComponent } from './components/main/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -23,7 +23,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSliderModule} from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
-///////////////////
 import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { localStroageService } from './components/service/localstorage.service';
@@ -37,7 +36,6 @@ import { dashboardFunctions } from './components/functions/dashboared.service';
 import { CityMapComponent } from './components/city-map/city-map.component';
 import { MainCompComponent } from './components/main/main-comp/main-comp.component';
 import { LoadingComponent } from './components/loading/loading.component';
-// import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -77,11 +75,9 @@ import { LoadingComponent } from './components/loading/loading.component';
     MatIconModule,
     MatSliderModule,
     MatCardModule,
-    /////////////
     MatTableModule,
     MatGridListModule,
     HttpClientModule,
-    // GoogleMapsModule,
     
   ],
   providers: [localStroageService, genericFunction, dashboardFunctions],

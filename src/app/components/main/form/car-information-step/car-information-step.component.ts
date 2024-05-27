@@ -9,7 +9,6 @@ import { FormService } from 'src/app/components/service/form.service';
   styleUrls: ['./car-information-step.component.scss']
 })
 export class CarInformationStepComponent implements OnInit{
-  // @Input() secondFormGroup!: FormGroup;
   motorsList = ['Electric', 'Gasoline', 'Hybrid', 'Diesel'];
   selectedSeats: number = 2;
   carInformation!: FormGroup;
