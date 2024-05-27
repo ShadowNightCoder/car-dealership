@@ -40,7 +40,6 @@ export class CarInformationStepComponent implements OnInit{
       seats: this.carInformation.value.seats,
       motor: this.carInformation.value.motor,
     }
-    console.log(this.carInfo)
     this.carInfoEmit.emit(this.carInfo);
     this.triggerFormReset();
     this.carInformation.reset;

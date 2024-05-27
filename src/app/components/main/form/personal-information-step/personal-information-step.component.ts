@@ -49,9 +49,6 @@ export class PersonalInformationStepComponent implements OnInit {
       email: this.personInfoForm.value.email,
       birthDate: this.personInfoForm.value.birthDate,
     }
-    console.log(this.personInfo.birthDate)
-    console.log(this.personInfo)
-
     this.personInfoEmit.emit(this.personInfo);
 
   }

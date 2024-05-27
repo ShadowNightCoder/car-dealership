@@ -59,14 +59,12 @@ export class MorePersonalInformationStepComponent implements OnInit {
 
 
   onSubmit() {
-    console.log("wired did it even worked?")
     this.morePersonalInfo = {
       address: this.personMoreInfoForm.value.address,
       city: this.personMoreInfoForm.value.city,
       country: this.personMoreInfoForm.value.country,
       hobbies: this.personMoreInfoForm.value.hobbies
     }
-    console.log(this.morePersonalInfo)
     this.personMoreInfoEmit.emit(this.morePersonalInfo)
   }
 

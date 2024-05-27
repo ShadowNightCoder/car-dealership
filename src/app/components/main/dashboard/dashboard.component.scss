@@ -84,6 +84,18 @@ table {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .notSoImportant {
+    display: none;
+  }
+
+  .mat-mdc-card-content {
+    padding: 0 !important;
+  }
+
+}
+
+
 @media screen and (max-width: 500px) {
   #agesChart {
     width: 360px !important;
@@ -96,19 +108,10 @@ table {
   #hobbiesChart {
     width: 240px !important;
   }
-}
-
-
-@media screen and (max-width: 600px) {
-  .notSoImportant {
-    display: none;
-  }
-
-  .mat-mdc-card-content {
-    padding: 0 !important;
-  }
 
 }
+
+
 
 
 @media screen and (max-width: 390px) {

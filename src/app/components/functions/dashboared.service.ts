@@ -86,13 +86,12 @@ export class dashboardFunctions {
     ///////////////////////////////////////////////////
 
 
-    ///////////////////////////////////////////////////
+    /////////////////////////////////////////////////// hobbiesChart the most 3 commons hobbies among the form submiters
     getHobbiesData(FormsSubList: FormRequest[]) {
         const hobbiesCounts: { [hobbies: string]: number } = {};
         FormsSubList.forEach(form => {
             form.morePersonalInformation.hobbies.forEach(hobbies => {
                 let hobbie = String(hobbies);
-                console.log("my hobbies is: " + hobbies)
                 if (hobbiesCounts[hobbie]) {
                     hobbiesCounts[hobbie]++;
                 } else {
@@ -110,5 +109,37 @@ export class dashboardFunctions {
 
         return { labels, data };
     }
+
+    ///////////////////////////////////////////////////
+
+
+
+    ///////////////////////////////////////////////////the most commont city among the form submiters
+
+    findMostCommonCity(formsList: FormRequest[]): string {
+        const cityCounts: { [city: string]: number } = {};
+    
+        formsList.forEach((form) => {
+          const city = form.morePersonalInformation.city;
+          if (cityCounts[city]) {
+            cityCounts[city]++;
+          } else {
+            cityCounts[city] = 1;
+          }
+        });
+    
+        let mostCommonCity = '';
+        let maxCount = 0;
+        for (const city in cityCounts) {
+          if (cityCounts[city] > maxCount) {
+            mostCommonCity = city;
+            maxCount = cityCounts[city];
+          }
+        }
+    
+        return mostCommonCity;
+      }
+    
+
 
 }

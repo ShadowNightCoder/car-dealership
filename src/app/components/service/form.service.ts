@@ -44,8 +44,6 @@ export class FormService {
     for (const char of forbiddenChars) {
       const charLowerCase = char.toLowerCase();
       if (control_new.includes(charLowerCase)) {
-        console.log(control_new);
-        console.log(`Forbidden character ${charLowerCase} detected`);
         return { 'characterIsForbidden': true };
       }
     }
@@ -53,7 +51,6 @@ export class FormService {
 
     for (const keyword of suspiciousKeywords) {
       if (control_new.includes(keyword.toLowerCase())) {
-        console.log(`Suspicious keyword ${keyword} detected`);
         return { 'suspiciousKeywordDetected': true };
       }
     }

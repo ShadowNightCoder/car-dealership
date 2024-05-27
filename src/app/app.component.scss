@@ -9,10 +9,8 @@
 app-header,
 app-footer {
   flex: 0 0 auto;
-  /* Let header and footer take as much space as they need */
 }
 
 app-main-comp {
   flex: 1;
-  /* Let the main content take up remaining space */
 }

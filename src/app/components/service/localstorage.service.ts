@@ -52,8 +52,6 @@ export class localStroageService {
       if (jsonDataString) {
         const jsonStringArray = jsonDataString.split('!');
         jsonStringArray.forEach(jsonString => {
-          console.log('my json string!!!!!!!!!!!!!!!!!!')
-          console.log(jsonString)
           const jsonData = JSON.parse(jsonString);
           jsonDataList.push(jsonData);
         });

@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   mostWantedMotor = '';
   isSmallScreen: boolean = false;
   private breakpointSubscription: Subscription;
+  mostCommonCity: string = '';
   
   constructor(private localstorageService: localStroageService, private breakpointObserver: BreakpointObserver, private dashboardFunc: dashboardFunctions) {
     this.FormsSubList = this.localstorageService.getJsonDataFromLocalStorage('formList');
@@ -37,6 +38,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.createCharts();
+    this.mostCommonCity = this.dashboardFunc.findMostCommonCity(this.FormsSubList);
   }
 
 

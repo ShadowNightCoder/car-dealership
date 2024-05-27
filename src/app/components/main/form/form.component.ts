@@ -55,6 +55,5 @@ export class FormComponent {
   setInStorage() {
     const jsonDataString = JSON.stringify(this.fullFormRequest);
     this.localstorageService.appendToLocalStorage('formList', jsonDataString);
-    console.log(this.fullFormRequest);
   }
 }
